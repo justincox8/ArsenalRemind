@@ -8,9 +8,12 @@ dependencies = [
     "bs4>=0.0.2",
     "chump>=1.6.0",
     "requests>=2.32.5",
+<<<<<<< HEAD
     "selenium>=4.35.0",
 <<<<<<< HEAD
 =======
     "webdriver-manager>=4.0.2",
 >>>>>>> d2528cdd06b0bb56a4675564c67e773a0450f52e
+=======
+>>>>>>> parent of d2528cd (added test.py to play around with bs4 and selenium)
 ]
