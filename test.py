@@ -6,6 +6,7 @@ import time
 from datetime import datetime, timedelta
 import re
 import schedule
+from chump import Application
 
 
 service = Service("/usr/bin/chromedriver")
@@ -25,14 +26,22 @@ def is_today():
 	print(date_obj.date())
 	print("this is working")
 	return now.date() == date_obj.date()
+
+def send_notification(message):
+	app = Application("aimfebhb9oc3kc3hdmcuug3z67qh1i")
+	client = app.get_user("upoq3r2xg259bb9cr1nwc62mdnd3gm")
+	client.send_message(message, title="Arsenal Remind")
 	
 	
 
 
-dates = [tag.text for tag in soup.find_all("time")]
+def main():
+	if is_today() == True:
+		send_message("The game is today!!!!!!")
+	else:
+		send_notification("The game is not today")
 
-schedule.every().day.at("4:00").do(is_today)
-is_today()
+schedule.every().day.at("04:00").do(main)
 while True:
 	schedule.run_pending()
 	time.sleep(1)
