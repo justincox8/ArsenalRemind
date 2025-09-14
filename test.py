@@ -31,7 +31,7 @@ def is_today():
 
 dates = [tag.text for tag in soup.find_all("time")]
 
-schedule.every(1).minutes.do(is_today)
+schedule.every().day.at("4:00").do(is_today)
 is_today()
 while True:
 	schedule.run_pending()
