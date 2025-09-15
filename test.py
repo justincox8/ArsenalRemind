@@ -37,7 +37,8 @@ def send_notification(message):
 
 def main():
 	if is_today() == True:
-		send_message("The game is today!!!!!!")
+		time = soup.find("time")
+		send_message(f"The game is today at {time}")		
 	else:
 		send_notification("The game is not today")
 
