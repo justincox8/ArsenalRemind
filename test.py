@@ -78,11 +78,11 @@ def main():
 		if result.time:
 			send_notification(f"Arsenal play in {result.minutes_until_game}")
 	else:
-		print("it didnt work")
-		return False
+		print("there is no game today")
+		
 	
 
-schedule.every().day.at("09:41").do(main)
+schedule.every().day.at("08:25").do(main)
 while True:
 	schedule.run_pending()
 	time.sleep(1)
