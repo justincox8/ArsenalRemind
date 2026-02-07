@@ -1,59 +1,27 @@
+import ntfy
 import requests
-from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
-from chump import Application
-from zoneinfo import ZoneInfo
-import time
-import sys
-import re
+from dotenv import load_dotenv
+import os
+import json
+from datetime import *
 
-url = "https://www.bbc.com/sport/football/teams/arsenal/scores-fixtures"
-response = requests.get(url)
-soup = BeautifulSoup(response.text, "html.parser")
+load_dotenv()
+api_key = os.getenv("API_KEY")
 
-def is_today(dt):
-	if dt.get_text() == "Today":
-		return True
-	return False
-
-def get_fixture():
-	#get the first time and h2 on page which for bbc in specific will be the soonest games time and date
-	date = soup.find("div", {"data-content": "Today"})
-	print(date.get_text())
-
-	"""today = datetime.today()
-				n = strip_str(date)
-				dt = datetime.strptime(n, "%A %d %B")
-				dt = dt.replace(year=datetime.today().year, hour=int(time.get_text()[:2]), minute=int(time.get_text()[3:]))"""
-	return(date)
-
-
-def send_notification(message):
-	app = Application("aimfebhb9oc3kc3hdmcuug3z67qh1i")
-	client = app.get_user("upoq3r2xg259bb9cr1nwc62mdnd3gm")
-	client.send_message(message, title="Arsenal Remind")
-
-
-def main():
-	now = datetime.now(ZoneInfo("America/Los_Angeles"))
-	dt = get_fixture()
-	gtime = soup.find('time').get_text().strip()
-	if dt:
-		if is_today(dt):
-			game_time = datetime.strptime(gtime, "%H:%M")
-			game_time = game_time.replace(year=datetime.now().year)
-			game_time = game_time.replace(month=datetime.now().month)
-			game_time = game_time.replace(day=datetime.now().day)
-			game_time_adj = game_time - timedelta(hours=8)
-			now =datetime.now()
-			time_left = game_time_adj - now
-			noitfy_time = time_left.total_seconds() - 900
-			print(noitfy_time)
-			time.sleep(noitfy_time)
-			send_notification(f"Arsenal play in 15 minutes")
-		else:
-			sys.exit()
-	return 0
-
-
-main()
+#arsneal team id: 3068
+url = "https://api.soccerdataapi.com/matches"
+querystring = {'league_id': 228,'auth_token': api_key}
+headers = {
+    'Accept-Encoding': 'gzip',
+    'Content-Type': 'application/json'
+}
+response = requests.get(url, headers=headers, params=querystring)
+data = response.json()
+arsenal_matches = []
+now = datetime.now()
+for m in data:
+    for i in m["stage"][0]["matches"]:
+        if i["teams"]["home"]["name"] == "Arsenal" or i["teams"]["away"]["name"] == "Arsenal":
+            arsenal_matches.append(i)
+for i in range(len(arsenal_matches)):
+    print(f"{arsenal_matches[i]["date"]} {arsenal_matches[i]["teams"]["home"]["name"]} vs {arsenal_matches[i]["teams"]["away"]["name"]}\n")
