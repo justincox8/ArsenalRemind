@@ -17,8 +17,8 @@ headers = {
 }
 response = requests.get(url, headers=headers, params=querystring)
 data = response.json()
-arsenal_matches = []
 now = datetime.now()
+arsenal_matches = []
 for m in data:
     for i in m["stage"][0]["matches"]:
         if i["teams"]["home"]["name"] == "Arsenal" or i["teams"]["away"]["name"] == "Arsenal":
