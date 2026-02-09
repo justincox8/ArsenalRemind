@@ -23,7 +23,7 @@ def get_matches():
     data = response.json()
     return data
 
-def check_date(data: dict):
+def next_match(data: dict):
     now = datetime.now()
     fromatted_date_int = int(now.strftime("%Y%m%d"))
     arsenal_matches = []
@@ -45,8 +45,11 @@ def check_date(data: dict):
         if temp_format > fromatted_date_int:
             filtered_matches.append(i)
         
-    for i in filtered_matches:
-        print(f"{i["date"]} {i["teams"]["home"]["name"]} vs {i["teams"]["away"]["name"]}")
+    """for i in filtered_matches:
+                    print(f"{i["date"]} {i["teams"]["home"]["name"]} vs {i["teams"]["away"]["name"]}")"""
+    next_match = filtered_matches[0]
+    print(next_match)
+    return next_match
 
 def send_message():
     pass
