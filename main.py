@@ -1,5 +1,9 @@
-def main():
-    print("Hello from arsenalremind!")
+from reminder import *
 
-if __name__ == "__main__":
-    main()
+def main():
+    data = get_matches()
+    check_date(data)
+    return 0
+
+
+main()
