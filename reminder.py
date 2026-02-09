@@ -18,10 +18,14 @@ headers = {
 response = requests.get(url, headers=headers, params=querystring)
 data = response.json()
 now = datetime.now()
+fromatted_date = now.strftime("%d/%m/%Y")
+print(fromatted_date)
 arsenal_matches = []
 for m in data:
     for i in m["stage"][0]["matches"]:
         if i["teams"]["home"]["name"] == "Arsenal" or i["teams"]["away"]["name"] == "Arsenal":
             arsenal_matches.append(i)
-for i in range(len(arsenal_matches)):
-    print(f"{arsenal_matches[i]["date"]} {arsenal_matches[i]["teams"]["home"]["name"]} vs {arsenal_matches[i]["teams"]["away"]["name"]}\n")
+
+for i in arsenal_matches:
+    print(f"{i["date"]} {i["teams"]["home"]["name"]} vs {i["teams"]["away"]["name"]}")
+
