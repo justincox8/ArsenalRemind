@@ -2,7 +2,8 @@ from reminder import *
 
 def main():
     data = get_matches()
-    next_match(data)
+    nm = next_match(data)
+    send_message(nm)
     return 0
 
 

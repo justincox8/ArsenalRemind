@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 import os
 import json
 from datetime import *
+import time
+from playwright.sync_api import sync_playwright, Playwright
 
 
 
@@ -45,5 +47,28 @@ def next_match(data: dict):
     print(f"{next_match["date"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}")
     return next_match
 
-def send_message():
-    pass
+def send_message(next_match):
+    message = f"Arsenal play on {next_match["date"]}\nMatch: {next_match["time"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}"
+    requests.post(
+        "https://ntfy.sh/ArsenalReminder", 
+        data= message, 
+        headers={
+            "Title": "Arsenal Reminder",
+            "Tags": "warning,rotating_light",
+            "Priority": "5"
+
+        })
+
+def take_screenshot(playwright: Playwright):
+    firefox = playwright.firefox
+    browser = firefox.launch()
+    page = browser.new_page()
+    page.goto("https://x.com/Arsenal")
+    time.sleep(5)
+    page.screenshot(path="screenshots/lineup.png")
+    browser.close()
+
+    
+"""
+with sync_playwright() as playwright:
+        take_screenshot(playwright)"""
