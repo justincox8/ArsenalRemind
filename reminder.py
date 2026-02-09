@@ -25,12 +25,28 @@ def get_matches():
 
 def check_date(data: dict):
     now = datetime.now()
-    fromatted_date = str(now.strftime("%d/%m/%Y"))
+    fromatted_date_int = int(now.strftime("%Y%m%d"))
     arsenal_matches = []
+    filtered_matches = []
+    temp_date = None
+    temp_format = None
     for m in data:
         for i in m["stage"][0]["matches"]:
             if i["teams"]["home"]["name"] == "Arsenal" or i["teams"]["away"]["name"] == "Arsenal":
                 arsenal_matches.append(i)
-
+    print(type(arsenal_matches))
+    print(temp_format)
+    print(fromatted_date_int)
     for i in arsenal_matches:
+        i["date"] = i["date"].replace("/", "-")
+        temp_date = datetime.strptime(i["date"], "%d-%m-%Y")
+        temp_format = int(datetime.strftime(temp_date, "%Y%m%d"))
+
+        if temp_format > fromatted_date_int:
+            filtered_matches.append(i)
+        
+    for i in filtered_matches:
         print(f"{i["date"]} {i["teams"]["home"]["name"]} vs {i["teams"]["away"]["name"]}")
+
+def send_message():
+    pass
