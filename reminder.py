@@ -28,15 +28,11 @@ def next_match(data: dict):
     fromatted_date_int = int(now.strftime("%Y%m%d"))
     arsenal_matches = []
     filtered_matches = []
-    temp_date = None
-    temp_format = None
     for m in data:
         for i in m["stage"][0]["matches"]:
             if i["teams"]["home"]["name"] == "Arsenal" or i["teams"]["away"]["name"] == "Arsenal":
                 arsenal_matches.append(i)
-    print(type(arsenal_matches))
-    print(temp_format)
-    print(fromatted_date_int)
+    
     for i in arsenal_matches:
         i["date"] = i["date"].replace("/", "-")
         temp_date = datetime.strptime(i["date"], "%d-%m-%Y")
@@ -44,11 +40,9 @@ def next_match(data: dict):
 
         if temp_format > fromatted_date_int:
             filtered_matches.append(i)
-        
-    """for i in filtered_matches:
-                    print(f"{i["date"]} {i["teams"]["home"]["name"]} vs {i["teams"]["away"]["name"]}")"""
+
     next_match = filtered_matches[0]
-    print(next_match)
+    print(f"{next_match["date"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}")
     return next_match
 
 def send_message():

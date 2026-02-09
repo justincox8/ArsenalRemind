@@ -2,7 +2,7 @@ from reminder import *
 
 def main():
     data = get_matches()
-    check_date(data)
+    next_match(data)
     return 0
 
 
