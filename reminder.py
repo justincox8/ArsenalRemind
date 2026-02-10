@@ -36,7 +36,6 @@ def next_match(data: dict):
                 arsenal_matches.append(i)
     
     for i in arsenal_matches:
-        i["date"] = i["date"].replace("/", "-")
         temp_date = datetime.strptime(i["date"], "%d-%m-%Y")
         temp_format = int(datetime.strftime(temp_date, "%Y%m%d"))
 
@@ -68,7 +67,7 @@ def take_screenshot(playwright: Playwright):
     browser = firefox.launch()
     page = browser.new_page()
     page.goto("https://x.com/Arsenal")
-    time.sleep(5)
+    time.sleep(2)
     page.screenshot(path="screenshots/lineup.png")
     browser.close()
 
