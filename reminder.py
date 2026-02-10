@@ -48,16 +48,19 @@ def next_match(data: dict):
     return next_match
 
 def send_message(next_match):
-    message = f"Arsenal play on {next_match["date"]}\nMatch: {next_match["time"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}"
-    requests.post(
-        "https://ntfy.sh/ArsenalReminder", 
-        data= message, 
-        headers={
-            "Title": "Arsenal Reminder",
-            "Tags": "warning,rotating_light",
-            "Priority": "5"
+    message = f"Arsenal play on {next_match["date"]} Match: {next_match["time"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}"
+    with open("screenshots/lineup.png", 'rb') as f:
+        requests.post(
+            "https://ntfy.sh/ArsenalReminder", 
+            data= f, 
+            headers={
+                "Title": "Arsenal Reminder",
+                "Tags": "warning,rotating_light",
+                "Priority": "5",
+                "Message": message,
+                "Filename": "screenshots/lineup.png"
 
-        })
+            })
 
 def take_screenshot(playwright: Playwright):
     firefox = playwright.firefox
@@ -69,6 +72,4 @@ def take_screenshot(playwright: Playwright):
     browser.close()
 
     
-"""
-with sync_playwright() as playwright:
-        take_screenshot(playwright)"""
+
