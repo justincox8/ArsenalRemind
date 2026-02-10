@@ -58,7 +58,8 @@ def send_message(next_match):
                 "Tags": "warning,rotating_light",
                 "Priority": "5",
                 "Message": message,
-                "Filename": "screenshots/lineup.png"
+                "Filename": "screenshots/lineup.png",
+                "Click": f"https://ntfy.sh/ArsenalReminder"
 
             })
 

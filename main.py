@@ -6,7 +6,6 @@ def main():
     with sync_playwright() as playwright:
         take_screenshot(playwright)
     send_message(nm)
-    return 0
 
 
 main()
