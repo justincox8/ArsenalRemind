@@ -9,6 +9,7 @@ from playwright.sync_api import sync_playwright, Playwright
 #make this global so i can use it in other funcitons
 load_dotenv()
 api_key = os.getenv("API_KEY")
+api_football_key = os.getenv("API_FOOTBAL_KEY")
 
 
 def get_matches():
@@ -61,27 +62,30 @@ def head_to_head(next_match: dict):
 
     return data
 
+def test():
+    url = "https://api.football-data.org/v4/competitions/PL/standings"
+
+    payload={'league': 39, 'season': 2025}
+    headers = {
+      'X-Auth-Token': api_football_key,
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    data = response.json()
+    print(data)
+
 def send_message(next_match:dict, h2h:dict):
     message = f"Arsenal play on {next_match["date"]} Match: {next_match["time"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]} {h2h}"
-    with open("screenshots/lineup.png", 'rb') as f:
-        requests.post(
-            "https://ntfy.sh/ArsenalReminder", 
-            data= f, 
-            headers={
-                "Title": "Arsenal Reminder",
-                "Tags": "warning,rotating_light",
-                "Priority": "5",
-                "Message": message,
-                "Filename": "screenshots/lineup.png",
-                "Click": f"https://ntfy.sh/ArsenalReminder"
+    requests.post(
+        "https://ntfy.sh/ArsenalReminder",  
+        headers={
+            "Title": "Arsenal Reminder",
+            "Tags": "warning,rotating_light",
+            "Priority": "5",
+            "Message": message,
+            "Click": f"https://ntfy.sh/ArsenalReminder"
 
             })
 
-def take_screenshot(playwright: Playwright):
-    firefox = playwright.firefox
-    browser = firefox.launch()
-    page = browser.new_page()
-    page.goto("https://x.com/Arsenal")
-    time.sleep(2)
-    page.screenshot(path="screenshots/lineup.png")
-    browser.close()
+
+test()
