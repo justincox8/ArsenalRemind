@@ -5,7 +5,9 @@ import os
 import json
 from datetime import *
 import time
-from playwright.sync_api import sync_playwright, Playwright
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 #make this global so i can use it in other funcitons
 load_dotenv()
 api_key = os.getenv("API_KEY")
@@ -13,8 +15,6 @@ api_football_key = os.getenv("API_FOOTBAL_KEY")
 
 
 def get_matches():
-    
-
     #arsneal team id: 3068
     url = "https://api.soccerdataapi.com/matches"
     querystring = {'league_id': 228,'auth_token': api_key}
@@ -28,7 +28,6 @@ def get_matches():
 
 def next_match(data: dict):
     now = datetime.now()
-    fromatted_date_int = int(now.strftime("%Y%m%d"))
     filtered_matches = []
     arsenal_matches = []
     for m in data:
@@ -39,14 +38,36 @@ def next_match(data: dict):
     for i in arsenal_matches:
         i["date"] = i["date"].replace("/", "-")
         temp_date = datetime.strptime(i["date"], "%d-%m-%Y")
-        temp_format = int(datetime.strftime(temp_date, "%Y%m%d"))
 
-        if temp_format > fromatted_date_int:
+        if temp_date.date() > now.date():
             filtered_matches.append(i)
 
     next_match = filtered_matches[0]
-    print(f"{next_match["date"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}")
     return next_match
+
+def check_date(next_match: dict):
+    now = datetime.now()
+    next_match_date = datetime.strptime(next_match["date"], "%d-%m-%Y")
+    if now.date() == next_match_date.date():
+        return False
+    else:
+        print(f"{next_match["date"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}")
+        return True
+   
+
+def wait_time(nm: dict):
+    gmt = nm["time"]
+    now = datetime.now(ZoneInfo("America/Los_Angeles"))
+    today = datetime.now().date()
+    
+    dt_gmt = datetime.strptime(f"{today} {gmt}", "%Y-%m-%d %H:%M")
+    dt_gmt = dt_gmt.replace(tzinfo=ZoneInfo("UTC"))
+    
+    dt_pacific = dt_gmt.astimezone(ZoneInfo("America/Los_Angeles"))
+
+    difference = (dt_pacific - now).total_seconds() - 4500
+    
+    time.sleep(difference)
 
 def head_to_head(next_match: dict):
     home = next_match["teams"]["home"]["id"]
@@ -62,7 +83,7 @@ def head_to_head(next_match: dict):
 
     return data
 
-def test():
+def get_standings():
     url = "https://api.football-data.org/v4/competitions/PL/standings"
 
     payload={'league': 39, 'season': 2025}
@@ -88,4 +109,3 @@ def send_message(next_match:dict, h2h:dict):
             })
 
 
-test()

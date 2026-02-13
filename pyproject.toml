@@ -8,6 +8,7 @@ dependencies = [
     "bs4>=0.0.2",
     "chump>=1.6.0",
     "dotenv>=0.9.9",
+    "fastapi[standard]>=0.129.0",
     "ntfy>=2.7.1",
     "playwright>=1.58.0",
     "pytz>=2025.2",
