@@ -7,11 +7,10 @@ def main():
     nm = next_match(data)
     is_today = check_date(nm)
     if(is_today == True):
-        h2h = head_to_head(nm)
         wait_time(nm)
-        send_message(nm, h2h)
-    else: 
-        
+        send_message()
+    else:
+        print("No arsenal game today")
 
 schedule.every().day.at("03:00", "America/Los_Angeles").do(main)
 

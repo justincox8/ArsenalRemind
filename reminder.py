@@ -49,11 +49,10 @@ def check_date(next_match: dict):
     now = datetime.now()
     next_match_date = datetime.strptime(next_match["date"], "%d-%m-%Y")
     if now.date() == next_match_date.date():
-        return False
-    else:
         print(f"{next_match["date"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}")
         return True
-   
+    else:
+        return False
 
 def wait_time(nm: dict):
     gmt = nm["time"]
@@ -95,8 +94,8 @@ def get_standings():
     data = response.json()
     print(data)
 
-def send_message(next_match:dict, h2h:dict):
-    message = f"Arsenal play on {next_match["date"]} Match: {next_match["time"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]} {h2h}"
+def send_message():
+    message = f"Arsenal Play in an hour click to see matchup"
     requests.post(
         "https://ntfy.sh/ArsenalReminder",  
         headers={
