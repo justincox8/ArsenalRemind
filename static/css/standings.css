@@ -1,6 +1,7 @@
 .standings-container {
 	border: 3px solid black;
-	width: 1000px;
+	width: 80%;
+	max-width: 1000px;
 	margin: 0% auto;
 }
 
@@ -10,7 +11,7 @@ div.team-container{
 	border-bottom: 2px dotted black;
 	align-items: center;
 	background-color: #D3D3D3;
-	width: 1000px;
+	width: 100%;
 	margin: 0% auto;
 	height: 40px;
 }

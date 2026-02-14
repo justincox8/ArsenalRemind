@@ -121,5 +121,3 @@ def send_message():
 
             })
 
-
-get_standings()
