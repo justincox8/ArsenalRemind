@@ -11,7 +11,7 @@ def main():
         send_message()
     else:
         print("No arsenal game today")
-
+main()
 schedule.every().day.at("02:45", "America/Los_Angeles").do(main)
 
 while True:

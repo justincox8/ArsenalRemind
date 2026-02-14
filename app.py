@@ -22,6 +22,10 @@ templates = Jinja2Templates(directory="templates")
 def home(request: Request):
 	with open("next_match.json", "r") as f:
 		next_match = json.load(f)
+
+	time = next_match["time"]
+	date = next_match["date"]
 	homet = next_match["teams"]["home"]["name"]
 	awayt = next_match["teams"]["away"]["name"]
-	return templates.TemplateResponse("index.html", {"request":request, "home": homet, "away":awayt})
+	fixture_list = next_match["fixture_list"]
+	return templates.TemplateResponse("index.html", {"request":request, "home": homet, "away":awayt, "date": date, "time": time, "fixtures": fixture_list})

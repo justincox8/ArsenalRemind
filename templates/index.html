@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Fuck You Ezekiel</h1>
+    <h1 class="home-title">Arsenal</h1>
+    <h1 class="teams">{{ date }} {{ time }} {{home}} vs {{away}}</h1>
+
+    {% for match in fixtures %}
+        <h2>{{ match["date"] }} {{ match["time"] }} {{ match["teams"]["home"]["name"] }} {{ match["teams"]["away"]["name"] }}</h2>
+    {% endfor %}
 </body>
 </html>

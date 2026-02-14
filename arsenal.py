@@ -26,6 +26,8 @@ def get_matches():
     data = response.json()
     return data
 
+
+
 def next_match(data: dict):
     now = datetime.now()
     filtered_matches = []
@@ -41,10 +43,13 @@ def next_match(data: dict):
 
         if temp_date.date() > now.date():
             filtered_matches.append(i)
-
+    for i in filtered_matches[1:]:
+        i["time"] = convert_time(i["time"])["string"]
     next_match = filtered_matches[0]
+    next_match["time"] = convert_time(next_match["time"])["string"]
+    next_match.update({"fixture_list": filtered_matches[1:]})
     with open("next_match.json", "w") as f:
-        json.dump(next_match, f)
+        json.dump(next_match, f, indent=4)
     return next_match
 
 def check_date(next_match: dict):
@@ -56,8 +61,8 @@ def check_date(next_match: dict):
     else:
         return False
 
-def wait_time(nm: dict):
-    gmt = nm["time"]
+def convert_time(time):
+    gmt = time
     now = datetime.now(ZoneInfo("America/Los_Angeles"))
     today = datetime.now().date()
     
@@ -65,6 +70,11 @@ def wait_time(nm: dict):
     dt_gmt = dt_gmt.replace(tzinfo=ZoneInfo("UTC"))
     
     dt_pacific = dt_gmt.astimezone(ZoneInfo("America/Los_Angeles"))
+    dt_string = dt_pacific.strftime("%H:%M")
+    return {"time":dt_pacific, "string": dt_string}
+
+def wait_time(nm: dict):
+    dt_pacific = convert_time(nm["time"])["time"]
 
     difference = (dt_pacific - now).total_seconds() - 4500
     

@@ -1,1 +1,508 @@
-{"id": 954667, "date": "18-02-2026", "time": "20:00", "teams": {"home": {"id": 3074, "name": "Wolverhampton Wanderers"}, "away": {"id": 3068, "name": "Arsenal"}}, "status": "pre-match", "minute": -1, "winner": "tbd", "has_extra_time": false, "has_penalties": false, "goals": {"home_ht_goals": 0, "away_ht_goals": 0, "home_ft_goals": 0, "away_ft_goals": 0, "home_et_goals": -1, "away_et_goals": -1, "home_pen_goals": -1, "away_pen_goals": -1}, "events": [], "odds": {"match_winner": {"home": 10.25, "draw": 5.5, "away": 1.29}, "over_under": {"total": 2.5, "over": 1.72, "under": 2.16}, "handicap": {"market": "+1.5", "home": 1.99, "away": 1.88}, "last_modified_timestamp": 1771034517}, "match_preview": {"has_preview": false, "word_count": -1}}
+{
+    "id": 954667,
+    "date": "18-02-2026",
+    "time": "12:00",
+    "teams": {
+        "home": {
+            "id": 3074,
+            "name": "Wolverhampton Wanderers"
+        },
+        "away": {
+            "id": 3068,
+            "name": "Arsenal"
+        }
+    },
+    "status": "pre-match",
+    "minute": -1,
+    "winner": "tbd",
+    "has_extra_time": false,
+    "has_penalties": false,
+    "goals": {
+        "home_ht_goals": 0,
+        "away_ht_goals": 0,
+        "home_ft_goals": 0,
+        "away_ft_goals": 0,
+        "home_et_goals": -1,
+        "away_et_goals": -1,
+        "home_pen_goals": -1,
+        "away_pen_goals": -1
+    },
+    "events": [],
+    "odds": {
+        "match_winner": {
+            "home": 10.25,
+            "draw": 5.5,
+            "away": 1.29
+        },
+        "over_under": {
+            "total": 2.5,
+            "over": 1.72,
+            "under": 2.16
+        },
+        "handicap": {
+            "market": "+1.5",
+            "home": 1.99,
+            "away": 1.88
+        },
+        "last_modified_timestamp": 1771036300
+    },
+    "match_preview": {
+        "has_preview": false,
+        "word_count": -1
+    },
+    "fixture_list": [
+        {
+            "id": 954633,
+            "date": "21-02-2026",
+            "time": "07:00",
+            "teams": {
+                "home": {
+                    "id": 2909,
+                    "name": "Tottenham Hotspur"
+                },
+                "away": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {
+                    "home": 6.2,
+                    "draw": 3.96,
+                    "away": 1.55
+                },
+                "over_under": {
+                    "total": 2.5,
+                    "over": 1.81,
+                    "under": 2.02
+                },
+                "handicap": {
+                    "market": "+1.0",
+                    "home": 1.9,
+                    "away": 1.95
+                },
+                "last_modified_timestamp": 1771036302
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954643,
+            "date": "28-02-2026",
+            "time": "07:00",
+            "teams": {
+                "home": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                },
+                "away": {
+                    "id": 2916,
+                    "name": "Chelsea"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954649,
+            "date": "04-03-2026",
+            "time": "12:00",
+            "teams": {
+                "home": {
+                    "id": 3200,
+                    "name": "Brighton & Hove Albion"
+                },
+                "away": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954662,
+            "date": "14-03-2026",
+            "time": "07:00",
+            "teams": {
+                "home": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                },
+                "away": {
+                    "id": 4139,
+                    "name": "Everton"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954740,
+            "date": "11-04-2026",
+            "time": "06:00",
+            "teams": {
+                "home": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                },
+                "away": {
+                    "id": 3072,
+                    "name": "AFC Bournemouth"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954690,
+            "date": "18-04-2026",
+            "time": "06:00",
+            "teams": {
+                "home": {
+                    "id": 4136,
+                    "name": "Manchester City"
+                },
+                "away": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954695,
+            "date": "25-04-2026",
+            "time": "06:00",
+            "teams": {
+                "home": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                },
+                "away": {
+                    "id": 3071,
+                    "name": "Newcastle United"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954742,
+            "date": "02-05-2026",
+            "time": "06:00",
+            "teams": {
+                "home": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                },
+                "away": {
+                    "id": 4145,
+                    "name": "Fulham"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954709,
+            "date": "09-05-2026",
+            "time": "06:00",
+            "teams": {
+                "home": {
+                    "id": 3059,
+                    "name": "West Ham United"
+                },
+                "away": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954721,
+            "date": "17-05-2026",
+            "time": "06:00",
+            "teams": {
+                "home": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                },
+                "away": {
+                    "id": 3104,
+                    "name": "Burnley"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        },
+        {
+            "id": 954737,
+            "date": "24-05-2026",
+            "time": "07:00",
+            "teams": {
+                "home": {
+                    "id": 4140,
+                    "name": "Crystal Palace"
+                },
+                "away": {
+                    "id": 3068,
+                    "name": "Arsenal"
+                }
+            },
+            "status": "pre-match",
+            "minute": -1,
+            "winner": "tbd",
+            "has_extra_time": false,
+            "has_penalties": false,
+            "goals": {
+                "home_ht_goals": 0,
+                "away_ht_goals": 0,
+                "home_ft_goals": 0,
+                "away_ft_goals": 0,
+                "home_et_goals": -1,
+                "away_et_goals": -1,
+                "home_pen_goals": -1,
+                "away_pen_goals": -1
+            },
+            "events": [],
+            "odds": {
+                "match_winner": {},
+                "over_under": {},
+                "handicap": {}
+            },
+            "match_preview": {
+                "has_preview": false,
+                "word_count": -1
+            }
+        }
+    ]
+}
