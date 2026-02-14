@@ -48,6 +48,9 @@ def next_match(data: dict):
     next_match = filtered_matches[0]
     next_match["time"] = convert_time(next_match["time"])["string"]
     next_match.update({"fixture_list": filtered_matches[1:]})
+    
+    standings = get_standings()
+    next_match.update({"standings": standings})
     with open("next_match.json", "w") as f:
         json.dump(next_match, f, indent=4)
     return next_match
@@ -97,14 +100,13 @@ def head_to_head(next_match: dict):
 def get_standings():
     url = "https://api.football-data.org/v4/competitions/PL/standings"
 
-    payload={'league': 39, 'season': 2025}
     headers = {
       'X-Auth-Token': api_football_key,
     }
 
     response = requests.request("GET", url, headers=headers)
     data = response.json()
-    print(data)
+    return data
 
 def send_message():
     message = f"Arsenal Play in an hour click to see matchup"
@@ -120,3 +122,4 @@ def send_message():
             })
 
 
+get_standings()

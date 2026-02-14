@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>standings</title>
+    <link href="{{ url_for('static', path='css/standings.css') }}" rel="stylesheet">
+</head>
+<body>
+    {% for team in standings %}
+        <div class="team-container">
+            <p>{{team["position"]}}</p>
+            <h3 class="standing_team_name">{{team["team"]["name"]}}</h3>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
