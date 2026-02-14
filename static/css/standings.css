@@ -1,5 +1,20 @@
+.standings-container {
+	border: 3px solid black;
+	width: 1000px;
+	margin: 0% auto;
+}
+
 div.team-container{
 	display: flex;
 	flex-direction: row;
-	border-radius: 20px;
+	border-bottom: 2px dotted black;
+	align-items: center;
+	background-color: #D3D3D3;
+	width: 1000px;
+	margin: 0% auto;
+	height: 40px;
+}
+p.position {
+	margin-left: 5px;
+	margin-right: 10px;
 }
