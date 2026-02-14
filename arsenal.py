@@ -43,6 +43,8 @@ def next_match(data: dict):
             filtered_matches.append(i)
 
     next_match = filtered_matches[0]
+    with open("next_match.json", "w") as f:
+        json.dump(next_match, f)
     return next_match
 
 def check_date(next_match: dict):
