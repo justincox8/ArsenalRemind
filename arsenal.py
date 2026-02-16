@@ -3,7 +3,6 @@ import requests
 from dotenv import load_dotenv
 import os
 import json
-from datetime import *
 import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -51,7 +50,7 @@ def next_match(data: dict):
     
     standings = get_standings()
     next_match.update({"standings": standings})
-    with open("next_match.json", "w") as f:
+    with open("data.json", "w") as f:
         json.dump(next_match, f, indent=4)
     return next_match
 
@@ -66,7 +65,7 @@ def check_date(next_match: dict):
 
 def convert_time(time):
     gmt = time
-    now = datetime.now(ZoneInfo("America/Los_Angeles"))
+   
     today = datetime.now().date()
     
     dt_gmt = datetime.strptime(f"{today} {gmt}", "%Y-%m-%d %H:%M")
@@ -78,7 +77,7 @@ def convert_time(time):
 
 def wait_time(nm: dict):
     dt_pacific = convert_time(nm["time"])["time"]
-
+    now = datetime.now(ZoneInfo("America/Los_Angeles"))
     difference = (dt_pacific - now).total_seconds() - 4500
     
     time.sleep(difference)

@@ -3,14 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', path='css/main.css') }}" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <h1 class="home-title">Arsenal</h1>
-    <h1 class="teams">{{ date }} {{ time }} {{home}} vs {{away}}</h1>
+   <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Arsenal</h1>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/standings">Standings</a>
+            </div>
+        </div>
+    </nav>
+    <div class="match-card">
+        <div class="match-teams">
+            <div class="team">
+                <img src="{{ hcrest }}" alt="{{ home }} crest">
+                <div class="team-name">{{ home }}</div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team">
+                <img src="{{ acrest }}" alt="{{ away }} crest">
+                <div class="team-name">{{ away }}</div>
+            </div>
+        </div>
+        <div class="match-details">
+            <p>Date: {{ date }}</p>
+            <p>Time: {{ time }}</p>
+        </div>
+    </div>
 
-    {% for match in fixtures %}
-        <h2>{{ match["date"] }} {{ match["time"] }} {{ match["teams"]["home"]["name"] }} {{ match["teams"]["away"]["name"] }}</h2>
-    {% endfor %}
+   
+
+    <section class="next-fixtures">
+        <h2>Next Fixtures</h2>
+    <div class="nextfixtures">
+        {% for match in fixtures %}
+            <div class="ngamecard">
+                <p class="game-card">{{ match["date"] }}</p>
+                <p class="game-card">{{ match["teams"]["home"]["name"] }} vs {{ match["teams"]["away"]["name"] }}</p>
+                <p class="game-card">{{ match["time"] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    </section>
 </body>
 </html>

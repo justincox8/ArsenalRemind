@@ -30,31 +30,32 @@
     "events": [],
     "odds": {
         "match_winner": {
-            "home": 10.25,
+            "home": 10.5,
             "draw": 5.5,
             "away": 1.29
         },
         "over_under": {
             "total": 2.5,
             "over": 1.72,
-            "under": 2.16
+            "under": 2.15
         },
         "handicap": {
             "market": "+1.5",
-            "home": 1.99,
-            "away": 1.88
+            "home": 2.0,
+            "away": 1.85
         },
-        "last_modified_timestamp": 1771039899
+        "last_modified_timestamp": 1771266696
     },
     "match_preview": {
-        "has_preview": false,
-        "word_count": -1
+        "has_preview": true,
+        "word_count": 701,
+        "excitement_rating": 5.56
     },
     "fixture_list": [
         {
             "id": 954633,
-            "date": "21-02-2026",
-            "time": "07:00",
+            "date": "22-02-2026",
+            "time": "08:30",
             "teams": {
                 "home": {
                     "id": 2909,
@@ -83,8 +84,8 @@
             "events": [],
             "odds": {
                 "match_winner": {
-                    "home": 6.2,
-                    "draw": 3.96,
+                    "home": 6.37,
+                    "draw": 4.0,
                     "away": 1.55
                 },
                 "over_under": {
@@ -94,10 +95,10 @@
                 },
                 "handicap": {
                     "market": "+1.0",
-                    "home": 1.9,
-                    "away": 1.95
+                    "home": 1.92,
+                    "away": 1.93
                 },
-                "last_modified_timestamp": 1771039902
+                "last_modified_timestamp": 1771266697
             },
             "match_preview": {
                 "has_preview": false,
@@ -526,7 +527,7 @@
             "id": 2403,
             "startDate": "2025-08-15",
             "endDate": "2026-05-24",
-            "currentMatchday": 26,
+            "currentMatchday": 31,
             "winner": null
         },
         "standings": [
