@@ -58,3 +58,7 @@ def standings(request: Request):
 		data = json.load(f)
 	standings = data["standings"]["standings"][0]['table']
 	return templates.TemplateResponse("standings.html", {"request": request, "standings": standings})
+
+@app.get("/next", response_class=HTMLResponse)
+def preview(request: Request):
+	return templates.TemplateResponse("next.html", {"request": request})	
