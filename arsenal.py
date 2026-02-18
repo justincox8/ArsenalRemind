@@ -40,7 +40,7 @@ def next_match(data: dict):
         i["date"] = i["date"].replace("/", "-")
         temp_date = datetime.strptime(i["date"], "%d-%m-%Y")
 
-        if temp_date.date() > now.date():
+        if temp_date.date() >= now.date():
             filtered_matches.append(i)
     for i in filtered_matches[1:]:
         i["time"] = convert_time(i["time"])["string"]
@@ -61,6 +61,8 @@ def check_date(next_match: dict):
         print(f"{next_match["date"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}")
         return True
     else:
+        print(now.date())
+        print(next_match_date.date())
         return False
 
 def convert_time(time):
@@ -76,10 +78,17 @@ def convert_time(time):
     return {"time":dt_pacific, "string": dt_string}
 
 def wait_time(nm: dict):
-    dt_pacific = convert_time(nm["time"])["time"]
+
+    dt_pacific = nm["time"]
+    dt = datetime.strptime(
+        f"{nm['date']} {nm['time']}",
+        "%d-%m-%Y %H:%M"
+    )
+
+    # Attach Pacific timezone (since it's already Pacific time)
+    dt_pacific = dt.replace(tzinfo=ZoneInfo("America/Los_Angeles"))
     now = datetime.now(ZoneInfo("America/Los_Angeles"))
-    difference = (dt_pacific - now).total_seconds() - 4500
-    
+    difference = (dt_pacific - now).total_seconds() + 4500
     time.sleep(difference)
 
 def head_to_head(next_match: dict):
@@ -116,7 +125,7 @@ def send_message():
             "Tags": "warning,rotating_light",
             "Priority": "5",
             "Message": message,
-            "Click": f"https://ntfy.sh/ArsenalReminder"
+            "Click": f"https://192.168.1.75:8000"
 
             })
 

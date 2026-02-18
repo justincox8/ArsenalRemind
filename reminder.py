@@ -6,12 +6,13 @@ def main():
     data = get_matches()
     nm = next_match(data)
     is_today = check_date(nm)
+    print(is_today)
     if(is_today == True):
         wait_time(nm)
         send_message()
     else:
         print("No arsenal game today")
-
+main()
 schedule.every().day.at("02:45", "America/Los_Angeles").do(main)
 
 while True:
