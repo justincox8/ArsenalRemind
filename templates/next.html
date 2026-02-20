@@ -17,5 +17,16 @@
             </div>
         </div>
     </nav>
+        <section class="next-fixtures">
+        <h2>Next Fixtures</h2>
+    <div class="nextfixtures">
+        {% for match in fixtures %}
+            <div class="ngamecard">
+                <p class="game-card">{{ match["date"] }}</p>
+                <p class="game-card">{{ match["teams"]["home"]["name"] }} vs {{ match["teams"]["away"]["name"] }}</p>
+                <p class="game-card">{{ match["time"] }}</p>
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

@@ -22,6 +22,8 @@
             <div class="team-container">
                 <p class="position">{{team["position"]}}.</p>
                 <p class="standing_team_name">{{team["team"]["name"]}}</p>
+                <p class="standing_team_data"> MP: {{team["playedGames"]}}    W: {{team["won"]}}    D: {{team["draw"]}}    L: {{team["lost"]}}</p>
+
             </div>
         {% endfor %}
     </div>

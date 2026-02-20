@@ -27,7 +27,7 @@ def home(request: Request):
 	date = next_match["date"]
 	homet = next_match["teams"]["home"]["name"]
 	awayt = next_match["teams"]["away"]["name"]
-	fixture_list = next_match["fixture_list"]
+	
 	standings_lookup = {}
 	for team_entry in next_match["standings"]["standings"][0]["table"]:
 		team_name = team_entry["team"]["name"]  # <- must get ["name"]	
@@ -50,7 +50,7 @@ def home(request: Request):
 	else:
 		acrest = None
 
-	return templates.TemplateResponse("index.html", {"request":request, "home": homet, "away":awayt, "date": date, "time": time, "fixtures": fixture_list, "hcrest": hcrest, "acrest": acrest})
+	return templates.TemplateResponse("index.html", {"request":request, "home": homet, "away":awayt, "date": date, "time": time,  "hcrest": hcrest, "acrest": acrest})
 
 @app.get("/standings", response_class=HTMLResponse)
 def standings(request: Request):
@@ -61,4 +61,9 @@ def standings(request: Request):
 
 @app.get("/next", response_class=HTMLResponse)
 def preview(request: Request):
-	return templates.TemplateResponse("next.html", {"request": request})	
+	with open("data.json", "r") as f:
+		next_match = json.load(f)
+
+	fixture_list = next_match["fixture_list"]
+
+	return templates.TemplateResponse("next.html", {"request": request, "fixtures": fixture_list})	
