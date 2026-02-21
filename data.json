@@ -1,11 +1,11 @@
 {
-    "id": 954667,
-    "date": "18-02-2026",
-    "time": "12:00",
+    "id": 954633,
+    "date": "22-02-2026",
+    "time": "08:30",
     "teams": {
         "home": {
-            "id": 3074,
-            "name": "Wolverhampton Wanderers"
+            "id": 2909,
+            "name": "Tottenham Hotspur"
         },
         "away": {
             "id": 3068,
@@ -30,82 +30,28 @@
     "events": [],
     "odds": {
         "match_winner": {
-            "home": 11.0,
-            "draw": 5.6,
-            "away": 1.28
+            "home": 6.0,
+            "draw": 4.0,
+            "away": 1.57
         },
         "over_under": {
             "total": 2.5,
-            "over": 1.73,
-            "under": 2.15
+            "over": 1.81,
+            "under": 2.0
         },
         "handicap": {
-            "market": "+1.5",
-            "home": 1.98,
-            "away": 1.89
+            "market": "+1.0",
+            "home": 1.88,
+            "away": 1.97
         },
-        "last_modified_timestamp": 1771434109
+        "last_modified_timestamp": 1771583530
     },
     "match_preview": {
         "has_preview": true,
-        "word_count": 701,
-        "excitement_rating": 5.56
+        "word_count": 686,
+        "excitement_rating": 7.03
     },
     "fixture_list": [
-        {
-            "id": 954633,
-            "date": "22-02-2026",
-            "time": "08:30",
-            "teams": {
-                "home": {
-                    "id": 2909,
-                    "name": "Tottenham Hotspur"
-                },
-                "away": {
-                    "id": 3068,
-                    "name": "Arsenal"
-                }
-            },
-            "status": "pre-match",
-            "minute": -1,
-            "winner": "tbd",
-            "has_extra_time": false,
-            "has_penalties": false,
-            "goals": {
-                "home_ht_goals": 0,
-                "away_ht_goals": 0,
-                "home_ft_goals": 0,
-                "away_ft_goals": 0,
-                "home_et_goals": -1,
-                "away_et_goals": -1,
-                "home_pen_goals": -1,
-                "away_pen_goals": -1
-            },
-            "events": [],
-            "odds": {
-                "match_winner": {
-                    "home": 6.0,
-                    "draw": 4.0,
-                    "away": 1.57
-                },
-                "over_under": {
-                    "total": 2.5,
-                    "over": 1.81,
-                    "under": 2.03
-                },
-                "handicap": {
-                    "market": "+1.0",
-                    "home": 1.89,
-                    "away": 1.97
-                },
-                "last_modified_timestamp": 1771434110
-            },
-            "match_preview": {
-                "has_preview": true,
-                "word_count": 686,
-                "excitement_rating": 7.03
-            }
-        },
         {
             "id": 954643,
             "date": "28-02-2026",
@@ -137,9 +83,22 @@
             },
             "events": [],
             "odds": {
-                "match_winner": {},
-                "over_under": {},
-                "handicap": {}
+                "match_winner": {
+                    "home": 1.67,
+                    "draw": 3.9,
+                    "away": 5.0
+                },
+                "over_under": {
+                    "total": 2.5,
+                    "over": 1.8,
+                    "under": 2.0
+                },
+                "handicap": {
+                    "market": -0.5,
+                    "home": 1.7,
+                    "away": 2.22
+                },
+                "last_modified_timestamp": 1771583532
             },
             "match_preview": {
                 "has_preview": false,
@@ -546,14 +505,14 @@
                             "tla": "ARS",
                             "crest": "https://crests.football-data.org/57.png"
                         },
-                        "playedGames": 26,
+                        "playedGames": 27,
                         "form": null,
                         "won": 17,
-                        "draw": 6,
+                        "draw": 7,
                         "lost": 3,
-                        "points": 57,
-                        "goalsFor": 50,
-                        "goalsAgainst": 18,
+                        "points": 58,
+                        "goalsFor": 52,
+                        "goalsAgainst": 20,
                         "goalDifference": 32
                     },
                     {
@@ -907,14 +866,14 @@
                             "tla": "WOL",
                             "crest": "https://crests.football-data.org/76.png"
                         },
-                        "playedGames": 26,
+                        "playedGames": 27,
                         "form": null,
                         "won": 1,
-                        "draw": 6,
+                        "draw": 7,
                         "lost": 19,
-                        "points": 9,
-                        "goalsFor": 16,
-                        "goalsAgainst": 48,
+                        "points": 10,
+                        "goalsFor": 18,
+                        "goalsAgainst": 50,
                         "goalDifference": -32
                     }
                 ]

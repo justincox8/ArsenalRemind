@@ -88,7 +88,7 @@ def wait_time(nm: dict):
     # Attach Pacific timezone (since it's already Pacific time)
     dt_pacific = dt.replace(tzinfo=ZoneInfo("America/Los_Angeles"))
     now = datetime.now(ZoneInfo("America/Los_Angeles"))
-    difference = (dt_pacific - now).total_seconds() + 4500
+    difference = (dt_pacific - now).total_seconds() - 4500
     time.sleep(difference)
 
 def head_to_head(next_match: dict):
@@ -125,7 +125,7 @@ def send_message():
             "Tags": "warning,rotating_light",
             "Priority": "5",
             "Message": message,
-            "Click": f"https://192.168.1.75:8000"
+            "Click": f"http://192.168.1.75:8000"
 
             })
 
