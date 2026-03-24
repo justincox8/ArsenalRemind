@@ -145,6 +145,10 @@ def get_champions_league():
     for i in data["matches"]:
         if i["status"] != "FINISHED":
             if i["homeTeam"]["name"] == "Arsenal FC" or i["awayTeam"]["name"] == "Arsenal FC":
-               arsenal_matches.append(i) 
-    
-    print(arsenal_matches)
+               arsenal_matches.append(i)
+    next_match = arsenal_matches[0]
+    with open("other.json", "w") as f:
+        json.dump(next_match, f, indent=4)
+    return next_match
+
+get_champions_league()
