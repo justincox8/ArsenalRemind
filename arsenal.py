@@ -6,11 +6,14 @@ import json
 import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
-
 #make this global so i can use it in other funcitons
 load_dotenv()
 api_key = os.getenv("API_KEY")
 api_football_key = os.getenv("API_FOOTBAL_KEY")
+other_comps = os.getenv("OTHER_COMPS_KEY")
+champions_league = os.getenv("CHAMPIONS_LEAGUE_ID")
+fa_cup = os.getenv("FA_CUP_ID")
+efl_cup = os.getenv("EFL_CUP_ID")
 
 
 def get_matches():
@@ -125,7 +128,23 @@ def send_message():
             "Tags": "warning,rotating_light",
             "Priority": "5",
             "Message": message,
-            "Click": f"http://192.168.1.75:8000"
+            "Click": f"justin.collie-boga.ts.net"
 
             })
 
+def get_champions_league():
+    url = "https://api.football-data.org/v4/competitions/CL/matches"
+    
+    headers = {
+        'X-Auth-Token': api_football_key,
+    }
+    
+    response = requests.request("GET", url, headers=headers)
+    data = response.json()
+    arsenal_matches = []
+    for i in data["matches"]:
+        if i["status"] != "FINISHED":
+            if i["homeTeam"]["name"] == "Arsenal FC" or i["awayTeam"]["name"] == "Arsenal FC":
+               arsenal_matches.append(i) 
+    
+    print(arsenal_matches)
