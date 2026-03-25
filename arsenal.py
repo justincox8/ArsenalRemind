@@ -35,6 +35,7 @@ def next_match(data: dict):
     filtered_matches = []
     arsenal_matches = []
     for m in data:
+        
         for i in m["stage"][0]["matches"]:
             if i["teams"]["home"]["name"] == "Arsenal" or i["teams"]["away"]["name"] == "Arsenal":
                 arsenal_matches.append(i)
@@ -42,9 +43,13 @@ def next_match(data: dict):
     for i in arsenal_matches:
         i["date"] = i["date"].replace("/", "-")
         temp_date = datetime.strptime(i["date"], "%d-%m-%Y")
+        i.update({"comp": "prem"})
 
         if temp_date.date() >= now.date():
             filtered_matches.append(i)
+    filtered_matches.append(get_champions_league())
+    filtered_matches =  sorted(filtered_matches, key=lambda x: datetime.strptime(x["date"], "%d-%m-%Y"))
+    print(filtered_matches)
     for i in filtered_matches[1:]:
         i["time"] = convert_time(i["time"])["string"]
     next_match = filtered_matches[0]
@@ -116,7 +121,9 @@ def get_standings():
     }
 
     response = requests.request("GET", url, headers=headers)
+    champ_standings = get_champ_standings()
     data = response.json()
+    data.update({"champ": champ_standings})
     return data
 
 def send_message():
@@ -145,10 +152,26 @@ def get_champions_league():
     for i in data["matches"]:
         if i["status"] != "FINISHED":
             if i["homeTeam"]["name"] == "Arsenal FC" or i["awayTeam"]["name"] == "Arsenal FC":
-               arsenal_matches.append(i)
+               arsenal_matches.append(i) 
     next_match = arsenal_matches[0]
-    with open("other.json", "w") as f:
-        json.dump(next_match, f, indent=4)
+    date = next_match["utcDate"]
+    time = date[date.find("T")+1:date.find("Z")-3]
+    date = date[:date.find("T")]
+    date = datetime.strptime(date, "%Y-%m-%d")
+    date = datetime.strftime(date, "%d-%m-%Y")
+    next_match.update({"date":date, "time": time})
+    next_match.update({"comp": "champ"})
     return next_match
 
-get_champions_league()
+def get_champ_standings():
+    url = "https://api.football-data.org/v4/competitions/CL/standings"
+
+    headers = {
+      'X-Auth-Token': api_football_key,
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    data = response.json()
+    return data    
+data = get_matches()
+next_match(data)

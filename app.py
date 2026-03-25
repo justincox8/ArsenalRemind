@@ -25,14 +25,23 @@ def home(request: Request):
 
 	time = next_match["time"]
 	date = next_match["date"]
-	homet = next_match["teams"]["home"]["name"]
-	awayt = next_match["teams"]["away"]["name"]
-	
+	if next_match["comp"] == "prem":
+	    homet = next_match["teams"]["home"]["name"]
+	    awayt = next_match["teams"]["away"]["name"]
+	if next_match["comp"] == "champ":
+	    homet = next_match["homeTeam"]["name"]
+	    awayt = next_match["awayTeam"]["name"]
 	standings_lookup = {}
-	for team_entry in next_match["standings"]["standings"][0]["table"]:
-		team_name = team_entry["team"]["name"]  # <- must get ["name"]	
-		crest_url = team_entry["team"]["crest"]
-		standings_lookup[team_name] = crest_url
+	if next_match["comp"] == "prem":
+	    for team_entry in next_match["standings"]["standings"][0]["table"]:
+    		team_name = team_entry["team"]["name"]  # <- must get ["name"]	
+    		crest_url = team_entry["team"]["crest"]
+    		standings_lookup[team_name] = crest_url
+	if next_match["comp"] == "champ":
+	    for team_entry in next_match["standings"]["champ"]["standings"][0]["table"]:
+    		team_name = team_entry["team"]["name"]  # <- must get ["name"]	
+    		crest_url = team_entry["team"]["crest"]
+    		standings_lookup[team_name] = crest_url    		
 
 	team_names_list = list(standings_lookup.keys())
 
