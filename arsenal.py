@@ -173,7 +173,6 @@ def get_champ_standings():
     data = response.json()
     return data    
 
-<<<<<<< HEAD
 
 def get_fa_cup(): 
     url = "https://www.thesportsdb.com/api/v1/json/3/eventsnext.php?id=133604"
@@ -190,5 +189,4 @@ def get_fa_cup():
 
 
 get_fa_cup()
-=======
->>>>>>> c18aa7ba937a5c2a864e75e96e20914becea86e7
+
