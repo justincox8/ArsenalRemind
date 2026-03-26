@@ -49,7 +49,6 @@ def next_match(data: dict):
             filtered_matches.append(i)
     filtered_matches.append(get_champions_league())
     filtered_matches =  sorted(filtered_matches, key=lambda x: datetime.strptime(x["date"], "%d-%m-%Y"))
-    print(filtered_matches)
     for i in filtered_matches[1:]:
         i["time"] = convert_time(i["time"])["string"]
     next_match = filtered_matches[0]
@@ -173,5 +172,4 @@ def get_champ_standings():
     response = requests.request("GET", url, headers=headers)
     data = response.json()
     return data    
-data = get_matches()
-next_match(data)
+

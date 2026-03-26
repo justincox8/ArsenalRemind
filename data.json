@@ -92,7 +92,7 @@
             "events": [],
             "odds": {
                 "match_winner": {
-                    "home": 1.36,
+                    "home": 1.38,
                     "draw": 4.75,
                     "away": 7.5
                 },
@@ -106,7 +106,7 @@
                     "home": 2.17,
                     "away": 1.7
                 },
-                "last_modified_timestamp": 1774400514
+                "last_modified_timestamp": 1774501311
             },
             "match_preview": {
                 "has_preview": false,
@@ -160,7 +160,7 @@
                     "home": 1.92,
                     "away": 1.89
                 },
-                "last_modified_timestamp": 1774400521
+                "last_modified_timestamp": 1774501314
             },
             "match_preview": {
                 "has_preview": false,
@@ -395,7 +395,7 @@
             "id": 2403,
             "startDate": "2025-08-15",
             "endDate": "2026-05-24",
-            "currentMatchday": 31,
+            "currentMatchday": 32,
             "winner": null
         },
         "standings": [
