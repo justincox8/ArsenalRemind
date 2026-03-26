@@ -49,7 +49,6 @@ def next_match(data: dict):
             filtered_matches.append(i)
     filtered_matches.append(get_champions_league())
     filtered_matches =  sorted(filtered_matches, key=lambda x: datetime.strptime(x["date"], "%d-%m-%Y"))
-    print(filtered_matches)
     for i in filtered_matches[1:]:
         i["time"] = convert_time(i["time"])["string"]
     next_match = filtered_matches[0]
@@ -174,6 +173,7 @@ def get_champ_standings():
     data = response.json()
     return data    
 
+<<<<<<< HEAD
 
 def get_fa_cup(): 
     url = "https://www.thesportsdb.com/api/v1/json/3/eventsnext.php?id=133604"
@@ -190,3 +190,5 @@ def get_fa_cup():
 
 
 get_fa_cup()
+=======
+>>>>>>> c18aa7ba937a5c2a864e75e96e20914becea86e7
