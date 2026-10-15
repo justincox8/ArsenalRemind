@@ -65,7 +65,7 @@ def check_date(next_match: dict):
     now = datetime.now()
     next_match_date = datetime.strptime(next_match["date"], "%d-%m-%Y")
     if now.date() == next_match_date.date():
-        print(f"{next_match["date"]} {next_match["teams"]["home"]["name"]} vs {next_match["teams"]["away"]["name"]}")
+        print(f"{next_match['date']} {next_match['teams']['home']['name']} vs {next_match['teams']['away']['name']}")
         return True
     else:
         print(now.date())
