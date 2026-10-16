@@ -174,7 +174,7 @@ def get_champ_standings():
     return data    
 
 
-def get_fa_cup(): 
+def get_next_match(): 
     url = "https://www.thesportsdb.com/api/v1/json/3/eventsnext.php?id=133604"
     headers = {
       'x-apisports-key': other_comps,
@@ -186,7 +186,18 @@ def get_fa_cup():
     with open("other.json", "w") as f:
         json.dump(data, f, indent=4)
     
+def get_previous_match():
+    url = "https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=133604"
+    headers = {
+      'x-apisports-key': other_comps,
+    }
+    
+    response = requests.request("GET", url)
+    
+    data = response.json()
+    with open("previous.json", "w") as f:
+        json.dump(data, f, indent=4)
 
-
-get_fa_cup()
+get_next_match()
+get_previous_match()
 
