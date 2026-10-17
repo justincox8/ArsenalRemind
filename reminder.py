@@ -3,8 +3,8 @@ import schedule
 import time
 
 def main():
-    data = get_matches()
-    nm = next_match(data)
+    data = get_next_match()
+    nm = next_match_cleanz(data)
     is_today = check_date(nm)
     print(is_today)
     if(is_today == True):
