@@ -20,52 +20,22 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-	with open("data.json", "r") as f:
+	with open("match.json", "r") as f:
 		next_match = json.load(f)
+	time = next_match["strTime"]
+	date = next_match["dateEvent"]
+	home_team = next_match["strHomeTeam"]
+	away_team = next_match["strAwayTeam"]
+	hcrest = next_match["strHomeTeamBadge"]
+	acrest = next_match["strAwayTeamBadge"]
 
-	time = next_match["time"]
-	date = next_match["date"]
-	if next_match["comp"] == "prem":
-	    homet = next_match["teams"]["home"]["name"]
-	    awayt = next_match["teams"]["away"]["name"]
-	if next_match["comp"] == "champ":
-	    homet = next_match["homeTeam"]["name"]
-	    awayt = next_match["awayTeam"]["name"]
-	standings_lookup = {}
-	if next_match["comp"] == "prem":
-	    for team_entry in next_match["standings"]["standings"][0]["table"]:
-    		team_name = team_entry["team"]["name"]  # <- must get ["name"]	
-    		crest_url = team_entry["team"]["crest"]
-    		standings_lookup[team_name] = crest_url
-	if next_match["comp"] == "champ":
-	    for team_entry in next_match["standings"]["champ"]["standings"][0]["table"]:
-    		team_name = team_entry["team"]["name"]  # <- must get ["name"]	
-    		crest_url = team_entry["team"]["crest"]
-    		standings_lookup[team_name] = crest_url    		
-
-	team_names_list = list(standings_lookup.keys())
-
-	hmatch_result = process.extractOne(homet, team_names_list)
-	if hmatch_result:
-		hmatch, hscore = hmatch_result # type: ignore
-		hcrest = standings_lookup[hmatch] if hscore > 80 else None
-	else:
-		hcrest = None
-
-	amatch_result = process.extractOne(awayt, team_names_list)
-	if amatch_result:
-		amatch, ascore = amatch_result # type: ignore
-		acrest = standings_lookup[amatch] if ascore > 80 else None
-	else:
-		acrest = None
-
-	return templates.TemplateResponse("index.html", {"request":request, "home": homet, "away":awayt, "date": date, "time": time,  "hcrest": hcrest, "acrest": acrest})
+	return templates.TemplateResponse("index.html", {"request":request, "home": home_team, "away":away_team, "date": date, "time": time,  "hcrest": hcrest, "acrest": acrest})
 
 @app.get("/standings", response_class=HTMLResponse)
 def standings(request: Request):
-	with open("data.json", "r") as f:
+	with open("standings.json", "r") as f:
 		data = json.load(f)
-	standings = data["standings"]["standings"][0]['table']
+	standings = data['standings'][0]['table']
 	return templates.TemplateResponse("standings.html", {"request": request, "standings": standings})
 
 @app.get("/next", response_class=HTMLResponse)
