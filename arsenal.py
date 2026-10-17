@@ -118,4 +118,3 @@ def get_previous_match():
 
 
 
-get_standings()
