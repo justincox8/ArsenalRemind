@@ -88,9 +88,6 @@ def send_message():
 
 def get_next_match(): 
     url = "https://www.thesportsdb.com/api/v1/json/123/eventsnext.php?id=133604"
-    headers = {
-      'x-apisports-key': other_comps,
-    }
     
     response = requests.request("GET", url)
     
