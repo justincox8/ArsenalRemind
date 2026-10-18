@@ -8,12 +8,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 #make this global so i can use it in other funcitons
 load_dotenv()
-api_key = os.getenv("API_KEY")
 api_football_key = os.getenv("API_FOOTBAL_KEY")
-other_comps = os.getenv("OTHER_COMPS_KEY")
-champions_league = os.getenv("CHAMPIONS_LEAGUE_ID")
-fa_cup = os.getenv("FA_CUP_ID")
-efl_cup = os.getenv("EFL_CUP_ID")
 
 
 def next_match_clean(data: dict):
@@ -118,4 +113,3 @@ def get_previous_match():
 
 
 
-get_standings()
